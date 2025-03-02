@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 
 # โหลดโมเดลและ scaler
-model_path = "D:/Project/jammyhomework/gradient_boosting_model.pkl"
-scaler_path = "D:/Project/jammyhomework/scaler.pkl"
+model_path = "gradient_boosting_model.pkl"
+scaler_path = "scaler.pkl"
 model = joblib.load(model_path)
 scaler = joblib.load(scaler_path)
 
