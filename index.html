@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>โรคหลอดเลือดสมอง</title>
+    <title>การทำนายโรคหลอดเลือดสมอง</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -12,7 +12,7 @@
         <form method="POST" action="/predict">
             <div class="form-group">
                 <label for="gender">เพศ:</label>
-                <select class="form-control" id="gender" name="gender" required>
+                <select class="form-control" id="gender" name="gender">
                     <option value="0">หญิง</option>
                     <option value="1">ชาย</option>
                 </select>
@@ -23,23 +23,23 @@
             </div>
             <div class="form-group">
                 <label for="hypertension">ภาวะความดันโลหิตสูง:</label>
-                <select class="form-control" id="hypertension" name="hypertension" required>
-                    <option value="0">ไม่มีภาวะความดันโลหิตสูง</option>
-                    <option value="1">มีภาวะความดันโลหิตสูง</option>
+                <select class="form-control" id="hypertension" name="hypertension">
+                    <option value="0">ไม่มี</option>
+                    <option value="1">มี</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="heart_disease">โรคหัวใจ:</label>
-                <select class="form-control" id="heart_disease" name="heart_disease" required>
-                    <option value="0">ไม่เป็นโรคหัวใจ</option>
-                    <option value="1">เป็นโรคหัวใจ</option>
+                <select class="form-control" id="heart_disease" name="heart_disease">
+                    <option value="0">ไม่มี</option>
+                    <option value="1">มี</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="married">สถานะการแต่งงาน:</label>
-                <select class="form-control" id="married" name="married" required>
-                    <option value="0">ยังไม่เคยแต่งงาน</option>
-                    <option value="1">เคยแต่งงานแล้ว</option>
+                <select class="form-control" id="married" name="married">
+                    <option value="0">ไม่เคยแต่งงาน</option>
+                    <option value="1">เคยแต่งงาน</option>
                 </select>
             </div>
             <div class="form-group">
@@ -54,16 +54,12 @@
         </form>
 
         <!-- แสดงผลการทำนาย -->
-        <div class="text-center mt-4">
-            {% if prediction is not none %}
-                <h3>{{ prediction }}</h3>
-            {% else %}
-                <h3 class="text-muted">รอผลการทำนาย...</h3>
-            {% endif %}
-        </div>
+        {% if prediction %}
+        <h3 class="text-center mt-4 text-success">{{ prediction }}</h3>
+        {% endif %}
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
